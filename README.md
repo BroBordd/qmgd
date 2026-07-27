@@ -1,8 +1,8 @@
 # qmgd
 
-A decoder (and, eventually, encoder) for Samsung's Qmage (`.qmg`) image and
-boot-animation format, built from scratch by reverse-engineering the format
-and cross-checking against a real FFmpeg decoder patch.
+A decoder for Samsung's Qmage (`.qmg`) image and boot-animation format,
+built from scratch by reverse-engineering the format and cross-checking
+against a real FFmpeg decoder patch.
 
 Qmage is a proprietary Korean image codec (by Quram) that Samsung uses for
 boot/shutdown animations and some UI assets. There is no official public
@@ -20,8 +20,6 @@ implemented.
   colors, simple palettes), and both `V16_SHORT_INDEX` codec paths (keyframe
   + animation inter-frame) are implemented and validated pixel-for-pixel
   against real files.
-- **Encoding: not started yet.** The goal is a tool that takes ordinary
-  images (PNG etc.) and produces valid `.qmg` files. This is next.
 - Not implemented: alpha/transparency channel, a couple of rarer header
   flag combinations. See `docs/FORMAT.md` for the exact list.
 
@@ -32,14 +30,14 @@ With CMake (preferred):
 ```sh
 cmake -B build
 cmake --build build
-./build/qmgd_dump samples/output.qmg out
+./build/qmgd_dump samples/9frame_gradient_animation.qmg out
 ```
 
 Without CMake:
 
 ```sh
 sh build.sh
-./qmgd_dump samples/output.qmg out
+./qmgd_dump samples/9frame_gradient_animation.qmg out
 ```
 
 `qmgd_dump` is a diagnostic CLI: it decodes every frame in a `.qmg` file and
@@ -53,10 +51,9 @@ trivial uncompressed format -- convert with ImageMagick
 ```
 include/qmgd/     public headers (decode.h, bitreader.h)
 src/              library implementation (header parsing, both codec paths)
-tools/            qmgd_dump: CLI decode/dump tool built on top of the library
+src/tools/        qmgd_dump: CLI decode/dump tool built on top of the library
 docs/             format notes
-samples/          test .qmg files used during development
-tests/            (reserved for automated tests -- not set up yet)
+samples/          sample .qmg files used for validation
 ```
 
 ## License

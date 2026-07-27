@@ -4,5 +4,5 @@
 set -e
 gcc -O2 -Wall -Iinclude -Isrc -o qmgd_dump \
     src/header.c src/decode_w2pass.c src/decode_a9ll.c src/decode.c \
-    tools/qmgd_dump.c -lm
+    src/tools/qmgd_dump.c -lm
 echo "built ./qmgd_dump"

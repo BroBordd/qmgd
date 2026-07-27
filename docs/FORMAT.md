@@ -2,7 +2,7 @@
 
 This documents what `qmgd` currently knows about the format, split into
 confirmed (validated against real files) and unimplemented. If you're
-extending the decoder or writing the encoder, this is the reference.
+extending the decoder, this is the reference.
 
 ## Provenance
 
@@ -69,7 +69,3 @@ rather than silently producing garbage:
   math needed to find where a keyframe's alpha data ends, are not ported.
 - `is_dynamic_table` is implemented but has not been exercised against a
   real sample yet (lightly tested only).
-
-## Encoder
-
-Not started. See the main README's roadmap.

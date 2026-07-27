@@ -19,7 +19,7 @@ if(QMGD_DEBUG)
     target_compile_definitions(qmgd PRIVATE QMGD_DEBUG)
 endif()
 
-add_executable(qmgd_dump tools/qmgd_dump.c)
+add_executable(qmgd_dump src/tools/qmgd_dump.c)
 target_link_libraries(qmgd_dump qmgd)
 
 install(TARGETS qmgd_dump RUNTIME DESTINATION bin)
